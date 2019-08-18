@@ -1,0 +1,33 @@
+<% include partials/header %>
+
+<h2>Простой способ найти должника или проверить свои долги</h2>
+
+<form action="/results">
+    <div>
+        <label>
+            Код региона*:
+            <input type="text" placeholder="Москва-77 / МО-50" name="region" required>
+        </label>
+    </div>
+    <div>
+        <label>
+            Фамилия*:
+            <input type="text" name="lastname" required>
+        </label>
+    </div>
+    <div>
+        <label>
+            Имя*:
+            <input type="text" name="firstname" required>
+        </label>
+    </div>
+    <div>
+        <label>
+            Дата рождения:
+            <input type="text" placeholder="формат «дд.мм.гггг»" name="birthdate">
+        </label>
+    </div>
+    <button>Поиск</button>
+</form>
+
+<% include partials/footer %>
