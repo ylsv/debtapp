@@ -13,20 +13,47 @@ app.get('/', function(req, res){
     res.render('home');
 });
 
-app.get('/results', function(req, res){
+app.get('/search', function(req, res){
     const region = req.query.region;
     const lastname = req.query.lastname;
     const firstname = req.query.firstname;
     const birthdate = req.query.birthdate;
-    request(encodeURI(`https://api-ip.fssprus.ru/api/v1.0/search/physical/?region=${region}&lastname=${lastname}&firstname=${firstname}&birthdate=${birthdate}&token=ppLvYvSByqkk`), function(error, response, body){
+    const url = encodeURI(`https://api-ip.fssprus.ru/api/v1.0/search/physical/?region=${region}&lastname=${lastname}&firstname=${firstname}&birthdate=${birthdate}&token=ppLvYvSByqkk`);
+    request(url, function(error, response, body){
        if(!error && response.statusCode === 200){
             const data = JSON.parse(body);
             searchId = data.response.task;
-            res.render('results', {searchId: searchId});
-        }
+            res.render('awaitingresults');
+        };
     });
 });
 
+app.get('/status', function(req, res){
+    const url = `https://api-ip.fssprus.ru/api/v1.0/status/?task=${searchId}&token=ppLvYvSByqkk`;
+    request(url, function(error, response, body){
+        if(!error && response.statusCode ===  200){
+            const data = JSON.parse(body);
+            if(data.response.status === 0){
+                res.redirect('/results')
+            } else if (data.response.status === 1 || data.response.status === 2) {
+                res.render('awaitingresults')
+                console.log('response status is still 1 or 2');
+            } else res.send('error occurred, no results rendered');
+        };
+    });
+});
+
+app.get('/results', function(req, res){
+    const url = `https://api-ip.fssprus.ru/api/v1.0/result/?task=${searchId}&token=ppLvYvSByqkk`;
+    request(url, function(error, response, body){
+        if(!error && response.statusCode ===  200){
+            const data = JSON.parse(body);
+            const foundData = data.response.result[0].result;
+            res.render('results', {foundData: foundData});
+            console.log(foundData);
+        };
+    });
+});
 
 
 app.listen(3000, () => console.log('Debt App has started!'));
