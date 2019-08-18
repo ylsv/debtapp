@@ -2,6 +2,28 @@
 
 <h2>Отлично, ниже результаты поиска:</h2>
 
-<%= foundData %>
+<% foundData.forEach(function(debt){ %>
+    <ol>
+        <li>
+            <div>Данные должника:</div><div><%= debt.name %></div>
+        </li>
+        <li>
+            <div>Исполнительное производство:</div><div><%= debt.exe_production %></div>
+        </li>
+        <li>
+            <div>Исполнительный документ:</div><div><%= debt.details %></div>
+        </li>
+        <li>
+            <div>Предмет исполнения, сумма непогашенной задолженности:</div><div><%= debt.subject %></div>
+        </li>
+        <li>
+            <div>Отдел судебных приставов :</div><div><%= debt.department %></div>
+        </li>
+        <li>
+            <div>Судебный пристав-исполнитель:</div><div><%= debt.bailiff %></div>
+        </li>
+    </ol>
+<% }); %>
+
 
 <% include partials/footer %>

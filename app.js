@@ -49,11 +49,13 @@ app.get('/results', function(req, res){
         if(!error && response.statusCode ===  200){
             const data = JSON.parse(body);
             const foundData = data.response.result[0].result;
-            res.render('results', {foundData: foundData});
+            if (foundData.length === 0){
+                res.render('noresults');
+            } else res.render('results', {foundData: foundData});
             console.log(foundData);
         };
     });
 });
 
-
+ 
 app.listen(3000, () => console.log('Debt App has started!'));
