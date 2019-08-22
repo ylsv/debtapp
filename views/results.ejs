@@ -1,29 +1,32 @@
 <% include partials/header %>
 
-<h2>Отлично, ниже результаты поиска:</h2>
+<h2 class="searchresults">Отлично, ниже результаты поиска <i class="far fa-surprise"></i></h2>
 
 <% foundData.forEach(function(debt){ %>
-    <ol>
-        <li>
-            <div>Данные должника:</div><div><%= debt.name %></div>
-        </li>
-        <li>
-            <div>Исполнительное производство:</div><div><%= debt.exe_production %></div>
-        </li>
-        <li>
-            <div>Исполнительный документ:</div><div><%= debt.details %></div>
-        </li>
-        <li>
-            <div>Предмет исполнения, сумма непогашенной задолженности:</div><div><%= debt.subject %></div>
-        </li>
-        <li>
-            <div>Отдел судебных приставов :</div><div><%= debt.department %></div>
-        </li>
-        <li>
-            <div>Судебный пристав-исполнитель:</div><div><%= debt.bailiff %></div>
-        </li>
-    </ol>
+    <div class='resultlist'>
+        <ol>
+            <li>
+                <div>Данные должника:</div><div class='searchresitem'><%= debt.name %></div>
+            </li>
+            <li>
+                <div>Исполнительное производство:</div><div class='searchresitem'><%= debt.exe_production %></div>
+            </li>
+            <li>
+                <div>Исполнительный документ:</div><div class='searchresitem'><%= debt.details %></div>
+            </li>
+            <li>
+                <div>Предмет исполнения, сумма непогашенной задолженности:</div><div class='searchresitem'><%= debt.subject %></div>
+            </li>
+            <li>
+                <div>Отдел судебных приставов :</div><div class='searchresitem'><%= debt.department %></div>
+            </li>
+            <li>
+                <div>Судебный пристав-исполнитель:</div><div class='searchresitem'><%= debt.bailiff %></div>
+            </li>
+        </ol>
+    </div>
 <% }); %>
 
+<img id="slyguy" src="https://memepedia.ru/wp-content/uploads/2017/05/15596_a4e35f4989603d24a0ff672c034056b7ba6a8415.jpeg" alt="хитрый военком мем">
 
 <% include partials/footer %>

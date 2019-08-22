@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:400,600&display=swap&subset=cyrillic');
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* MAIN PAGE CSS */
+
+/* MOBILE FIRST FORM VERSION */
+
+body {
+    background: #92BDE7;
+    color: #485e74;
+    line-height: 1.6;
+    font-family: 'Comfortaa', cursive;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+    background: #c9e6ff;
+}
+
+.desc {
+    display: block;
+    font-size: 0.8em;
+}
+
+.container form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    background: #eef4fa;
+    padding: 1em 2em;
+}
+
+.container form input {
+    font-family: 'Comfortaa', cursive;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+    line-height: 1.7em;
+    border: 1px solid #c9e6ff;
+    padding: 0.5em;
+}
+
+.searchbutton {
+    grid-column: 1 / 3;
+    text-align: center;
+}
+
+.container form button {
+    width: 70%;
+    font-family: 'Comfortaa', cursive;
+    border: 0;
+    text-transform: uppercase;
+    background: #c9e6ff;
+    font-weight: bold;
+    border-radius: 10px;
+    line-height: 2.2em;
+}
+
+.container form button:hover, .container form button:focus {
+    background: #92BDE7;
+    color: #fff;
+    outline: 0;
+    transition: background-color 2s ease-out;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #484f74;
+    line-height: 1.2em;
+
+}
+
+h1 {
+    padding: 0.5em 1em;
+}
+
+#homepageicon:hover {
+    transition: color 0.2s ease-out;
+}
+
+h2 {
+    margin: 0;
+    padding: 1em 1em 0.3em;
+}
+
+.fssplogo {
+    width: 250px;
+    display: block;
+    margin: 0.5em auto;
+    padding-bottom: 1em;
+}
+
+.fssp {
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #484f74;
+}
+
+a:hover {
+    color: #c9e6ff;
+    transition: color 0.2s ease-out;
+}
+
+#created {
+    width: 100%;
+    margin: 0;
+    padding: 0.2em 2em;
+    background: #92BDE7;
+    position: fixed;
+    bottom: 0px;
+    font-size: 0.8em;
+}
+
+/* LARGE SCREENS */
+/* it will apply when the screen width is more then 700px */
+
+@media(min-width: 700px){
+    .headerwrap {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+    }
+    .fssplogo {
+        grid-column-start: 1;
+        grid-row-start: 1;
+        padding: 1em;
+    }
+    .formheader {
+        grid-column-start: 2;
+        grid-row-start: 1;
+        align-self: center;
+        line-height: 2em;
+        text-transform: uppercase;
+    }
+    
+    .container {
+        max-width: 900px;
+    }
+
+    h1 {
+        margin: 1em;
+        line-height: 1.5em;
+        text-transform: uppercase;
+    }
+}
+
+/* SEARCH IN PROCESS PAGE AND NORESULTS PAGE CSS */
+
+.awaitingresults {
+    margin: 2em auto;
+    padding: 1em 0.5em;;
+    max-width: 800px;
+    box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+    background: #c9e6ff;
+}
+
+.awaitingresults p {
+    text-align: center;
+}
+
+.checkstatbtn, .noresults button {
+    width: 70%;
+    font-family: 'Comfortaa', cursive;
+    border: 0;
+    text-transform: uppercase;
+    background: #485e74;
+    font-weight: bold;
+    border-radius: 10px;
+    line-height: 2.2em;
+    color: #eef4fa;
+    display: block;
+    margin: 2em auto;
+    outline: none;
+}
+
+.checkstatbtn:hover, .noresults button:hover {
+    background: #92BDE7;
+    color: #fff;
+    outline: 0;
+    transition: background-color 1s ease-out;
+    cursor: pointer;
+}
+
+.noresults {
+    margin: 2em auto;
+    padding: 1em 0.5em;;
+    max-width: 800px;
+    box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+    background: #c9e6ff;
+    text-align: center;
+}
+
+.noresults p {
+    margin: 2em;
+}
+
+/* loading square */
+
+
+  
+  .loading-screen:before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: #f8c291;
+    left: 20%;
+    transform: translateX(-50%) rotate(0);
+    border-radius: 20px;
+    animation: loading 4s infinite linear;
+  }
+  
+  @keyframes loading {
+    from {
+      transform: translate(-50%) rotate(0deg);
+    }
+    50% {
+      left: 80%;
+    }
+    to {
+      transform: translate(-50%) rotate(1440deg);
+    }
+  }
+
+/* SEARCH RESULTS PAGE CSS */
+
+.searchresults {
+    color: #485e74;
+}
+
+.resultlist {
+    margin: 2em auto;
+    padding: 1em 0.5em;;
+    max-width: 800px;
+    box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+    background: #c9e6ff;
+}
+
+.searchresitem {
+    color: rgb(15, 88, 160);
+    font-weight: bold;
+}
+
+#slyguy {
+    display: block;
+    margin: 1em auto 3em;
+    max-width: 300px;
+    box-shadow: inset 0px 0px 10px 10px rgb(255, 255, 255, 0.7);
+}
+

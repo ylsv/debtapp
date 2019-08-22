@@ -6,6 +6,8 @@ const express = require('express');
 const app = express();
 const request = require('request');
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
+
 
 let searchId;
 
@@ -33,11 +35,11 @@ app.get('/status', function(req, res){
     request(url, function(error, response, body){
         if(!error && response.statusCode ===  200){
             const data = JSON.parse(body);
-            if(data.response.status === 0){
+            if(data.response.status === 0 || data.response.status === 1){
                 res.redirect('/results')
-            } else if (data.response.status === 1 || data.response.status === 2) {
+            } else if (data.response.status === 2) {
                 res.render('awaitingresults')
-                console.log('response status is still 1 or 2');
+                console.log('so am i still waiting');
             } else res.send('error occurred, no results rendered');
         };
     });
@@ -52,7 +54,6 @@ app.get('/results', function(req, res){
             if (foundData.length === 0){
                 res.render('noresults');
             } else res.render('results', {foundData: foundData});
-            console.log(foundData);
         };
     });
 });

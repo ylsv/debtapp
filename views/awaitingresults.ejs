@@ -1,8 +1,16 @@
 <% include partials/header %>
 
-<p>Запрос подан, идет поиск</p>
+<div class="awaitingresults">
+    <p>Запрос направлен, идет поиск</p>
 
-<a href="/status"><p>Проверить статус запроса</p></a>
+    <p>Пожалуйста, ожидайте. Базе данных ФССП требуется некоторое время на обработку</p>
+
+    <div class="loading-screen"></div>
+
+    <a href="/status"><button class="checkstatbtn">Проверить статус запроса</button></a>
+
+    <p>Согласен, долго. Иногда такое чувсто, что они обрабатывают интернет-запросы тоже в порядке живой очереди... <i class="far fa-meh"></i></p>
+</div>
 
 
 <% include partials/footer %>

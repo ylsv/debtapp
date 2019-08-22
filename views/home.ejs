@@ -1,33 +1,35 @@
 <% include partials/header %>
 
-<h2>Простой способ найти должника или проверить свои долги</h2>
-
-<form action="/search">
-    <div>
-        <label>
-            Код региона*:
-            <input type="text" placeholder="Москва-77 / МО-50" name="region" required>
-        </label>
+<div class="container">
+    <div class='headerwrap'>
+      <h2 class="formheader">Простой способ найти должника или проверить свои долги <i class="far fa-eye"></i></h2>
+      <a href="http://fssprus.ru/"><img class='fssplogo' src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Emblem_of_the_Federal_Bailiffs_Service.svg" alt="логотип ФССП"></a>
     </div>
-    <div>
-        <label>
-            Фамилия*:
-            <input type="text" name="lastname" required>
-        </label>
-    </div>
-    <div>
-        <label>
-            Имя*:
-            <input type="text" name="firstname" required>
-        </label>
-    </div>
-    <div>
-        <label>
-            Дата рождения:
-            <input type="text" placeholder="формат «дд.мм.гггг»" name="birthdate">
-        </label>
-    </div>
-    <button>Поиск</button>
-</form>
+    <form action="/search">
+        <div>
+            <label>
+                <span class="desc"><a href="https://ru.wikipedia.org/wiki/Коды_субъектов_Российской_Федерации">Код региона*:</a></span><input type="text" placeholder="У Москвы - 77, МО - 50" name="region" required>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="desc">Фамилия*:</span><input type="text" name="lastname" placeholder="Иванов" required>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="desc">Имя*:</span><input type="text" name="firstname" placeholder="Иван" required>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="desc">Дата рождения:</span><input type="date"  name="birthdate">
+            </label>
+        </div>
+        <div class="searchbutton">
+            <button>Поиск <i class="fas fa-search"></i></button>
+        </div>  
+    </form>
+</div>
 
 <% include partials/footer %>
