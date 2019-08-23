@@ -33,6 +33,7 @@ body {
     grid-gap: 20px;
     background: #eef4fa;
     padding: 1em 2em;
+    margin-bottom: 5em;
 }
 
 .container form input {
