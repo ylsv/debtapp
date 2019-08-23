@@ -59,4 +59,4 @@ app.get('/results', function(req, res){
 });
 
  
-app.listen(3000, () => console.log('Debt App has started!'));
+app.listen(process.env.PORT);
